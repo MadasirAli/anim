@@ -3,7 +3,6 @@
 #include <array>
 #include <cmath>
 #include <assert.h>
-#include <iostream>
 
 #include "anim_point.h"
 #include "anim_state.h"
@@ -15,9 +14,8 @@ namespace anim {
   class anim_clip
   {
   public:
-    constexpr anim_clip(bool posSwitch, bool scaleSwitch, bool rotSwitch, bool spriteSwitch,
-      bool loop, float duration, 
-      ease posEase, ease rotEase, ease scaleEase,
+    constexpr anim_clip(float duration, bool loop,
+      bool posSwitch, bool scaleSwitch, bool rotSwitch, bool spriteSwitch,
       std::array<anim_point, PointsCount> init_points)
       : 
       pos_enabled(posSwitch),
@@ -26,9 +24,7 @@ namespace anim {
       sprite_enabled(spriteSwitch),
       loop(loop),
       duration(duration),
-      pos_ease(posEase),
-      rot_ease(rotEase),
-      scale_ease(scaleEase),
+
       points(init_points) 
     {
       // "There must be point at the start and at the end with minimum and maximum stemps."
@@ -63,15 +59,12 @@ namespace anim {
             float norm = (accumulation - ((duration / (float)N) * current.stamp)) 
               / (((duration / (float)N) * next.stamp) - ((duration / (float)N) * current.stamp));
 
-            std::cout << "Norm: " << norm << "\n";
-            std::cout << "Stemp: " << currentStemp << "\n";
-
-            next.position[0] = interpolator()(current.position[0], next.position[0], norm, pos_ease);
-            next.position[1] = interpolator()(current.position[1], next.position[1], norm, pos_ease);
+            next.position[0] = interpolator()(current.position[0], next.position[0], norm, next.pos_ease);
+            next.position[1] = interpolator()(current.position[1], next.position[1], norm, next.pos_ease);
            
-            next.scale[0] = interpolator()(current.scale[0], next.scale[0], norm, scale_ease);
-            next.scale[1] = interpolator()(current.scale[1], next.scale[1], norm, scale_ease);
-            next.angle = interpolator()(current.angle, next.angle, norm, rot_ease);
+            next.scale[0] = interpolator()(current.scale[0], next.scale[0], norm, next.scale_ease);
+            next.scale[1] = interpolator()(current.scale[1], next.scale[1], norm, next.scale_ease);
+            next.angle = interpolator()(current.angle, next.angle, norm, next.angle_ease);
 
             next.sprite = current.sprite;
 
@@ -98,10 +91,6 @@ namespace anim {
 
     bool loop = true;
     float duration = 0;
-
-    ease pos_ease = ease::linear;
-    ease rot_ease = ease::linear;
-    ease scale_ease = ease::linear;
 
     std::array<anim_point, PointsCount> points;
 
