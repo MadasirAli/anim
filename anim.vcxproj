@@ -19,10 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="anim.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="anim.cpp" />
+    <ClInclude Include="anim_clip.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
