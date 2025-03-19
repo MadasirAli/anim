@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="anim_clip.h" />
+    <ClInclude Include="anim_point.h" />
+    <ClInclude Include="anim_state.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="anim_clip.cpp" />

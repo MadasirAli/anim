@@ -18,6 +18,12 @@
     <ClInclude Include="anim_clip.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="anim_point.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="anim_state.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="anim_clip.cpp">
