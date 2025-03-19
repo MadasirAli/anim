@@ -82,6 +82,9 @@ namespace anim {
 
     std::array<point, PointsCount> points = { 0 };
 
+    const size_t resolution = N;
+    const size_t pointCount = pointCount;
+
   private:
     float _accumulation = 0;
     uint32_t _currentStemp = 0;
