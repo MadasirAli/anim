@@ -24,9 +24,15 @@
     <ClInclude Include="anim_state.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="delta_fixed_step.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="anim_clip.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="delta_fixed_step.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

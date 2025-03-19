@@ -22,9 +22,11 @@
     <ClInclude Include="anim_clip.h" />
     <ClInclude Include="anim_point.h" />
     <ClInclude Include="anim_state.h" />
+    <ClInclude Include="delta_fixed_step.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="anim_clip.cpp" />
+    <ClCompile Include="delta_fixed_step.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
