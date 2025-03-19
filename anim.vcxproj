@@ -23,6 +23,7 @@
     <ClInclude Include="anim_point.h" />
     <ClInclude Include="anim_state.h" />
     <ClInclude Include="delta_fixed_step.h" />
+    <ClInclude Include="easers.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="anim_clip.cpp" />

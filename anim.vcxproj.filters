@@ -27,6 +27,9 @@
     <ClInclude Include="delta_fixed_step.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="easers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="anim_clip.cpp">
