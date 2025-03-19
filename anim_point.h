@@ -15,5 +15,7 @@ namespace anim {
       float angle, uint32_t sprite)
       : stamp(stamp), position{ x, y }, scale{scaleX, scaleY}, angle(angle), sprite(sprite) {
     }
+
+    constexpr anim_point() {};
   };
 }
