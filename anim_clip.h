@@ -28,7 +28,7 @@ namespace anim {
       points(init_points) 
     {
       // "There must be point at the start and at the end with minimum and maximum stemps."
-      assert(PointsCount >= 2);
+      static_assert(PointsCount >= 2);
       assert(init_points[0].stamp == 0 && init_points[PointsCount-1].stamp == N);
     }
 
