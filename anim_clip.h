@@ -45,7 +45,7 @@ namespace anim {
       state.currentStemp = (uint32_t)((state.accumulation / duration) * N);
       assert(state.currentStemp <= N);
     }
-    anim_point get(const anim_state& state) const {
+    anim_point get(anim_state& state) const {
       const auto accumulation = state.accumulation;
       const auto currentStemp = state.currentStemp;
 
@@ -58,6 +58,8 @@ namespace anim {
             
             float norm = (accumulation - ((duration / (float)N) * current.stamp)) 
               / (((duration / (float)N) * next.stamp) - ((duration / (float)N) * current.stamp));
+
+            state.norm = norm;
 
             next.position[0] = interpolator()(current.position[0], next.position[0], norm, next.pos_ease);
             next.position[1] = interpolator()(current.position[1], next.position[1], norm, next.pos_ease);
