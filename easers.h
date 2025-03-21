@@ -1,11 +1,18 @@
 #pragma once
 
+#define _USE_MATH_DEFINES
+#include <math.h>
+#undef _USE_MATH_DEFINES
+
 namespace anim {
   enum class ease {
     linear,
     quad_in,
     quad_out,
-    quad_in_out
+    quad_in_out,
+    sine_in,
+    sine_out,
+    sine_in_out
   };
 
   struct linear_easer
@@ -45,6 +52,31 @@ namespace anim {
     }
   };
 
+  struct sine_in_easer
+  {
+  public:
+    float operator() (float t) const {
+      return 1.0f - std::cos(((t * M_PI) * 0.5f));
+    }
+  };
+
+  struct sine_out_easer
+  {
+  public:
+    float operator() (float t) const {
+      return std::sin(((t * M_PI) * 0.5f));
+    }
+  };
+
+  struct sine_in_out_easer
+  {
+  public:
+    float operator() (float t) const {
+      return (1.0f - std::cos(t * M_PI)) * 0.5f;
+    }
+  };
+
+
   struct interpolator {
   public:
     float operator() (float a, float b, float t, ease ease) {
@@ -64,6 +96,15 @@ namespace anim {
       case ease::quad_in_out:
         newT = quad_in_out_easer()(t);
         break;
+      case ease::sine_in:
+        newT = sine_in_easer()(t);
+        break;
+      case ease::sine_out:
+        newT = sine_out_easer()(t);
+        break;
+      case ease::sine_in_out:
+        newT = sine_in_out_easer()(t);
+        break;
       default:
         assert(false);
         break;
@@ -73,4 +114,3 @@ namespace anim {
     }
   };
 }
-
