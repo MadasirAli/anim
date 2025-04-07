@@ -55,7 +55,7 @@ namespace anim {
   struct sine_in_easer
   {
   public:
-    float operator() (float t) const {
+    float operator() (float t) const {      
       return 1.0f - std::cos(((t * M_PI) * 0.5f));
     }
   };
